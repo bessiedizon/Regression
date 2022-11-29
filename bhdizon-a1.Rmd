@@ -1,0 +1,23 @@
+---
+title: "Bhdizon-a1"
+author: "Bessie H. Dizon"
+date: "2022-11-22"
+output: pdf_document
+---
+
+1.) What package are they talking about?
+  - the package they talking about is the Quarto that enables you to weave together content and executable code into a finished document.
+git config --global user.email 'your@email.com'
+2.) Why is there a need to shift from RMarkdown with the said package?
+	- given that Quarto is relatively new and it is a new open-source scientific and technical publishing system we need to shift from RMarkdown to make it consistent in doing projects and documents in R.
+
+3.) What inspired/sparked the said shift?
+	- Quarto can handle RMarkdown and this book was mostly prose and screenshots without any R code that make its insipired to shift in the said package, and most often when we tried somthing we just worked on it everytime and everywhre.
+
+4.) Are you up to the challenge of the said shift, learnig it and appyling it in your future career as math teacher. 
+	- Yes, Im up to the challenge of the said shift, learning it and applying it in my future career as Math teacher because making a shareable documents in quarto is a living as claerly as possible in the time we have, we can share it with others and improve as we use it again. This new package will help me in teaching profession by sing the codes that Im learning today. And as a future Math teacher this new package will help me to do a documents using Quarto in R and I will teach it to my futre students so that they will also know what is the use of RStudio.
+
+5.) What cool feature in the package did you like best? Please discuss, thanks.
+	- the cool feature in the package did I like the best is Quarto is an open-source and it's friendly to Python and Jupyter notebook as it to R, because it is not a language specific library but on external software application. There are also some useful conversation function, such as converting between .ipynb Jupyter notebook and .qmd quarto documents that can be read by any text editor. This Quarto package is helpful for our study for us to learn and explore new hings using the RStudio. Exploring something in this new package is not easy but learning it day by day will help us to understand how to use and handle the Quarto. 
+	
+	
