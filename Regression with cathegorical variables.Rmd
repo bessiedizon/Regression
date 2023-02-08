@@ -1,7 +1,10 @@
 ---
-title: "Regression"
-output: html_notebook
+title: "Regression with cathegorical variables"
+author: "Bessie H. Dizon"
+date: "2023-02-08"
+output: html_document
 ---
+
 
 ```{r}
 library(tidyverse)
@@ -14,12 +17,11 @@ data("Salaries", package = "car")
 # Inspect the data
 sample_n(Salaries, 3)
 ```
-
 ```{r}
 # Compute the model
 model <- lm(salary ~ sex, data = Salaries)
 summary(model)$coef %>%
-  round(digits=2)
+  round(digits = 2)
 ```
 
 ```{r}
@@ -27,6 +29,8 @@ contrasts(Salaries$sex)
 ```
 
 ```{r}
+
+
 Salaries <- Salaries %>%
   mutate(sex = relevel(sex, ref = "Male"))
 ```
@@ -36,15 +40,15 @@ model <- lm(salary ~ sex, data = Salaries)
 summary(model)$coef
 ```
 
+
 ```{r}
 model2 <- lm(salary ~ yrs.service + rank + discipline + sex,
              data = Salaries)
 Anova(model2)
 ```
-
 ```{r}
 summary(model2)$coef %>%
-  round(digits=2)
+  round(digits = 2)
 ```
 
 ```{r}
@@ -52,13 +56,19 @@ model3 <- lm(salary ~ rank + discipline,
              data = Salaries)
 Anova(model3)
 ```
-
 ```{r}
 summary(model3)$coef %>%
-  round(digits=2)
+  round(digits = 2)
+```
 ```
 
 ```{r}
 summary(model3)
 ```
 
+
+
+```{r}
+res <- model.matrix(~rank, data = Salaries)
+head(res[, -1])
+```

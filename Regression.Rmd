@@ -1,0 +1,99 @@
+---
+title: "Regression"
+author: "Bessie H. Dizon"
+date: "2023-02-08"
+output: html_document
+_notebookyoutube, facebook, nespaper, and sales. 
+---
+# Indroduction
+ 
+This is about regression, we are going to perform data analysis using marketing data of the datarium package in r. 
+
+# The Data 
+
+
+```{r echo=False, results='hide'}
+# install packages if not  yet installed
+library(tidyverse) # loading tidyverse
+library(caret) # loading caret
+library(ggpubr) # loading ggbur
+theme_set(theme_bw()) # i dont know
+```
+
+
+```{r echo=False}
+install.packages("datarium")
+library(datarium)
+```
+
+The marketing data has 200 observations and 4 variables namely;  The unit spent in advertisment in youtube.
+
+
+```{r echo=TRUE}
+# Inspect the data
+sample_n(marketing, 3)
+```
+
+```{r echo=False, results='hide'}
+# Split the data into training and test set
+set.seed(123)
+training.samples <- marketing$sales %>%
+  createDataPartition(p = 0.8, list = FALSE)
+train.data  <- marketing[training.samples, ]
+test.data <- marketing[-training.samples, ] 
+```
+
+```{r echo=False, results='hide'}
+```
+
+
+```{r echo=False, results='hide'}
+# Build the model
+model <- lm(sales ~., data = train.data)
+# Summarize the model
+summary(model)
+# Make predictions
+predictions <- model %>% predict(test.data)
+# Model performance
+# (a) Prediction error, RMSE
+RMSE(predictions, test.data$sales)
+# (b) R-square
+R2(predictions, test.data$sales)
+```
+
+```{r}
+ggboxplot(marketing)
+```
+
+
+```{ r echo=False, results='hide'}
+# predicting with new data 
+# using the model 
+youtube <- 0
+facebook <- 90
+a <- data.frame(youtube, facebook)
+p <- model %>% predict(a)
+p
+``` 
+Our model is as follows .
+$$\hat{y}=3.59 + 0.04x_1 + 0.19x_2 +\epsilon$$
+where $\hat{y}$ is sales, and $x1$ is youtube,and x_2 is facebook, and$\epsilon$ is the error term. 
+
+```{r}
+model <- lm(sales ~ youtube, data = train.data)
+summary(model)$coef
+```
+```{r}
+```
+
+
+
+
+
+```{r echo=FALSE, results='hide'}
+summary(marketing$youtube)
+summary(marketing$facebook)
+summary(marketing$newspaper)
+summary(marketing$sales)
+```
+
