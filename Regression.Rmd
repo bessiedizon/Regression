@@ -61,10 +61,6 @@ RMSE(predictions, test.data$sales)
 R2(predictions, test.data$sales)
 ```
 
-```{r}
-ggboxplot(marketing)
-```
-
 
 ```{ r echo=False, results='hide'}
 # predicting with new data 
@@ -83,11 +79,6 @@ where $\hat{y}$ is sales, and $x1$ is youtube,and x_2 is facebook, and$\epsilon$
 model <- lm(sales ~ youtube, data = train.data)
 summary(model)$coef
 ```
-```{r}
-```
-
-
-
 
 
 ```{r echo=FALSE, results='hide'}
